@@ -1,0 +1,824 @@
+@charset "utf-8";
+
+/* 공용 클래스 */
+body,
+html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+section,
+main {
+  max-width: 1920px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.hidden {
+  width: 1px;
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  position: absolute;
+  z-index: 99999;
+}
+
+.section-title {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  font-size: 130px;
+  font-family: "NHaas-M";
+  color: #E9E9E9;
+  letter-spacing: -0.04em;
+  z-index: -1;
+}
+
+/* 요소 숨기기(애니메이션 효과) */
+.hidden-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 공용 클래스 끝 */
+
+
+/* ------ 메인 ------ */
+
+/* 네비게이션(로고, 카테고리) */
+nav {
+  position: relative;
+  width: 100%;
+  padding: 30px 50px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/* 로고 */
+nav .logo {
+  position: fixed;
+  width: 38px;
+  float: left;
+}
+
+/* 카테고리 버튼 */
+nav .cate-btn {
+  position: fixed;
+  right: 50px;
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px 0;
+}
+
+/* 카테고리 버튼 라인 생성 */
+nav .cate-btn span {
+  position: relative;
+  display: block;
+  width: 42px;
+  height: 2px;
+  background: #111111;
+  border-radius: 50px;
+  transition: all .5s;
+}
+
+nav .cate-btn span:nth-child(2) {
+  margin-bottom: 8px;
+}
+
+/* 카테고리 라인 close버튼 토글 */
+nav .cate-btn span:nth-child(2).toggle {
+  transform: rotate(135deg); 
+  background: #fff;
+  top: 2px;
+  margin: 0;
+}
+
+nav .cate-btn span:nth-child(3).toggle {
+  transform: rotate(-135deg); 
+  background: #fff;
+}
+
+/* 카테고리 */
+nav .category {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+  background: #111111;
+  padding: 0 200px;
+  box-sizing: border-box;
+  clip-path: inset(0 0 0 100%); 
+  transition: all 1s ease-in-out;
+}
+
+/* 카테고리 오픈 토글 */
+nav .category.open {
+  clip-path: inset(0 0 0 0); 
+}
+
+/* 메뉴 */
+nav .menu {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: uppercase;
+  font-family: "NHaas-B";
+  gap: 50px;
+  font-size: 64px;
+}
+
+/* 메뉴 버튼 호버 */
+nav .menu li {
+  position: relative;
+  left: 100px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+
+nav .menu li:hover {
+  color: #87FF29;
+}
+
+
+/* 네비게이션 끝 */
+
+.main-container {
+  position: relative;
+  top: 43%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
+}
+
+/* portfolio 텍스트 */
+.main-container .main-title {
+  font-family: "NHaas-B";
+  text-transform: uppercase;
+  font-size: 126px;
+}
+
+.main-container .main-title p:nth-child(2) {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: -0.02em;
+  color: #87FF29;
+}
+
+/* 3번째 p제외 */
+.main-container .main-title p:not(:nth-child(3)) {
+  padding-bottom: 10px;
+}
+
+/* 메인 타이틀 첫번째 p */
+.main-container .main-title .hidden-wrap p {
+  -webkit-animation: hiddenTitle 1s ease-in-out;
+  -moz-animation: hiddenTitle 1s ease-in-out;
+  animation: hiddenTitle 1s ease-in-out;
+}
+
+/* 메인 타이틀 세번째 p */
+/* 애니메이션 딜레이를 위해 따로 작성 */
+.main-container .main-title .hidden-wrap .left {
+  position: relative;
+  left: 86px;
+  -webkit-animation: hiddenTitle 1s ease-in-out forwards;
+  -moz-animation: hiddenTitle 1s ease-in-out forwards;
+  animation: hiddenTitle 1s ease-in-out forwards;
+  -webkit-animation-delay: .5s;
+  -moz-animation-delay: .5s;
+  animation-delay: .5s;
+  transform: translateY(130px);
+}
+
+/* 메인 bg랩 */
+.main-container .bg-wrap {
+  position: relative;
+  width: 810px;
+  height: 540px;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0 round 0%); 
+  -webkit-animation: maskCircle 1s forwards ease-in-out;
+  -moz-animation: maskCircle 1s forwards ease-in-out;
+  animation: maskCircle 1s forwards ease-in-out;
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+}
+
+/* 정원으로 바뀌는 애니메이션 */
+@-webkit-keyframes maskCircle {
+  0% {
+    width: 810px;
+    height: 540px;
+    clip-path: inset(0 0 0 0 round 0%); 
+  }
+
+  100% {
+    width: 540px;
+    height: 540px;
+    clip-path: inset(0 0 0 0 round 50%); 
+  }
+}
+
+@-moz-keyframes maskCircle {
+  0% {
+    width: 810px;
+    height: 540px;
+    clip-path: inset(0 0 0 0 round 0%); 
+  }
+
+  100% {
+    width: 540px;
+    height: 540px;
+    clip-path: inset(0 0 0 0 round 50%); 
+  }
+}
+
+@keyframes maskCircle {
+  0% {
+    width: 810px;
+    height: 540px;
+    clip-path: inset(0 0 0 0 round 0%); 
+  }
+
+  100% {
+    width: 540px;
+    height: 540px;
+    clip-path: inset(0 0 0 0 round 50%); 
+  }
+}
+
+/* 메인 bg이미지 */
+.main-container .bg-wrap img {
+  position: relative;
+  width: 810px;
+  height: 540px;
+  object-fit: cover;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  opacity: 0;
+  transform: scale(1.1);
+  -webkit-animation: maskpoly 1s ease-in-out forwards;
+  -moz-animation: maskpoly 1s ease-in-out forwards;
+  animation: maskpoly 1s ease-in-out forwards;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* x축으로 확대되는 애니메이션 */
+@-webkit-keyframes maskpoly {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  }
+}
+
+@-moz-keyframes maskpoly {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  }
+}
+
+@keyframes maskpoly {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  }
+}
+
+
+/* ------  어바웃 섹션 ------ */
+
+.about {
+  position: relative;
+  max-width: 1620px;
+  display: flex;
+  align-items: center;
+  padding: 0 180px;
+  box-sizing: border-box;
+  gap: 25%;
+}
+
+.about h4 {
+  top: 110px;
+}
+
+/* 프로필 이미지 */
+.about img {
+  width: 402px;
+  opacity: 0;
+  clip-path: circle(0 at 50% 50%);
+}
+
+/* 프로필 이미지 애니메이션 */
+.about img.active {
+  -webkit-animation: maskCircle2 1.5s forwards ease-in-out;
+  -moz-animation: maskCircle2 1.5s forwards ease-in-out;
+  animation: maskCircle2 1.5s forwards ease-in-out;
+}
+
+/* 원 점점 확대 */
+@-webkit-keyframes maskCircle2 {
+  0% {
+    opacity: 0;
+    clip-path: circle(0 at 50% 50%);
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: circle(100% at 50% 50%);
+  }
+}
+
+@-moz-keyframes maskCircle2 {
+  0% {
+    opacity: 0;
+    clip-path: circle(0 at 50% 50%);
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: circle(100% at 50% 50%);
+  }
+}
+
+@keyframes maskCircle2 {
+  0% {
+    opacity: 0;
+    clip-path: circle(0 at 50% 50%);
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: circle(100% at 50% 50%);
+  }
+}
+
+/* 프로필 정보 */
+.about .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "NHaas-R";
+}
+
+.about .profile .profile-info {
+  position: relative;
+  top: 50px;
+  opacity: 0;
+  margin-top: 30px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.profile-info.active {
+  -webkit-animation: fade .8s forwards ease-in-out;
+  -moz-animation: fade .8s forwards ease-in-out;
+  animation: fade .8s forwards ease-in-out;
+  -webkit-animation-delay: .8s;
+  -moz-animation-delay: .8s;
+  animation-delay: .5s;
+}
+
+.about .profile .profile-info .name {
+  font-family: "NHaas-M";
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+/* 어바웃미 */
+.about .about-me {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 60px;
+  word-break: keep-all;
+  line-height: 1.5;
+}
+
+/* 어바웃 미 타이틀 */
+.about .about-me .about-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  transform: translateY(130px);
+}
+
+/* 어바웃 미 타이틀 애니메이션 */
+.about-title.active {
+  -webkit-animation: hiddenTitle 1s forwards ease-in-out;
+  -moz-animation: hiddenTitle 1s forwards ease-in-out;
+  animation: hiddenTitle 1s forwards ease-in-out;
+  -webkit-animation-delay: .5s;
+  -moz-animation-delay: .5s;
+  animation-delay: .5s;
+}
+
+/* 어바웃 미 내용 */
+.about .about-me li p {
+  position: relative;
+  top: 50px;
+  opacity: 0;
+}
+
+/* 어바웃 미 내용 텍스트 */
+.about-me li p.active {
+  -webkit-animation: fade 1s forwards ease-in-out;
+  -moz-animation: fade 1s forwards ease-in-out;
+  animation: fade 1s forwards ease-in-out;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+
+/* ------  프로젝트 섹션 ------ */
+
+.project {
+  max-width: 1620px;
+  height: auto;
+  display: flex;
+}
+
+/* 프로젝트 이미지(왼쪽) */
+/* 탑에 스티키 */
+.project #img-wrap {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  top: 0;
+  width: 50%;
+  height: 100vh;
+}
+
+.project #img-wrap img {
+  position: absolute;
+  width: 810px;
+  object-fit: contain;
+  opacity: 0;
+}
+
+#img-wrap img.active {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  -webkit-animation: maskPolyDown 1s forwards ease-in-out;
+  -moz-animation: maskPolyDown 1s forwards ease-in-out;
+  animation: maskPolyDown 1s forwards ease-in-out;
+}
+
+#img-wrap img.active2 {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  -webkit-animation: maskPolyUp 1s forwards ease-in-out;
+  -moz-animation: maskPolyUp 1s forwards ease-in-out;
+  animation: maskPolyUp 1s forwards ease-in-out;
+}
+
+/* 스크롤 다운시 애니메이션 */
+@-webkit-keyframes maskPolyDown {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  }
+}
+
+@-moz-keyframes maskPolyDown {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  }
+}
+
+@keyframes maskPolyDown {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  }
+}
+
+/* 스크롤 업시 애니메이션 */
+@-webkit-keyframes maskPolyUp {
+  0% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  }
+
+  100% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  }
+}
+
+@-moz-keyframes maskPolyUp {
+  0% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  }
+
+  100% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  }
+}
+
+@keyframes maskPolyUp {
+  0% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  }
+
+  100% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  }
+}
+
+
+/* 프로젝트 컨텐츠(오른쪽) */
+.project .contents-wrap {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.project .contents-wrap #pro-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+  height: 100vh;
+}
+
+/* 프로젝트 타이틀 */
+.project .contents-wrap #pro-contents .pro-title {
+  font-family: "NHaas-B";
+  font-size: 63px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* 프로젝트 넘버 */
+.project .contents-wrap #pro-contents .pro-title .hidden-wrap .number {
+  color: #87FF29;
+  font-size: 112px;
+  transform: translateY(130px);
+}
+
+/* 프로젝트명 */
+.project .contents-wrap #pro-contents .pro-title .hidden-wrap .pro-name {
+  transform: translateY(130px);
+}
+
+/* 프로젝트 넘버, 타이틀 애니메이션 */
+.pro-title .hidden-wrap .number.active,
+.pro-title .hidden-wrap .pro-name.active {
+  -webkit-animation: hiddenTitle .8s forwards ease-in-out;
+  -moz-animation: hiddenTitle .8s forwards ease-in-out;
+  animation: hiddenTitle .8s forwards ease-in-out;
+}
+
+
+/* 텍스트 아래에서 위로 등장 */
+@-webkit-keyframes hiddenTitle {
+  0% {
+    transform: translateY(130px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes hiddenTitle {
+  0% {
+    transform: translateY(130px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hiddenTitle {
+  0% {
+    transform: translateY(130px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 프로젝트 스킬 */
+.project .contents-wrap #pro-contents .pro-skill span {
+  font-family: "NHaas-R";
+  background: #111111;
+  color: #fff;
+  border-radius: 50px;
+  padding: 6px 14px 9px 14px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+/* 프로젝트 설명 텍스트 */
+.project .contents-wrap #pro-contents .description {
+  width: 480px;
+  word-break: keep-all;
+  line-height: 1.4;
+}
+
+/* 기여도 */
+.project .contents-wrap #pro-contents .description p:nth-child(1) {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* 주요 기능 */
+.project .contents-wrap #pro-contents .technique {
+  line-height: 1.4;
+}
+
+.project .contents-wrap #pro-contents .technique h5 {
+  font-weight: 600;
+}
+
+/* 뷰 버튼 */
+.project .contents-wrap #pro-contents .view-btn button {
+  border: none;
+  border-radius: 50px;
+  padding: 8px 16px 6px 16px;
+  background: #87FF29;
+  font-family: "NHaas-B";
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* 프로젝트 컨텐츠(타이틀 제외) 애니메이션 */
+#pro-contents .pro-skill,
+#pro-contents .description,
+#pro-contents .technique,
+#pro-contents .view-btn {
+  position: relative;
+  top: 50px;
+  opacity: 0;
+}
+
+/* 딜레이로 차례대로 등장 */
+#pro-contents .pro-skill.active {
+  -webkit-animation: fade .8s forwards ease-in-out;
+  -moz-animation: fade .8s forwards ease-in-out;
+  animation: fade .8s forwards ease-in-out;
+}
+
+#pro-contents .description.active {
+  -webkit-animation: fade .8s forwards ease-in-out;
+  -moz-animation: fade .8s forwards ease-in-out;
+  animation: fade .8s forwards ease-in-out;
+  -webkit-animation-delay: .2s;
+  -moz-animation-delay: .2s;
+  animation-delay: .2s;
+}
+
+#pro-contents .technique.active {
+  -webkit-animation: fade .8s forwards ease-in-out;
+  -moz-animation: fade .8s forwards ease-in-out;
+  animation: fade .8s forwards ease-in-out;
+  -webkit-animation-delay: .4s;
+  -moz-animation-delay: .4s;
+  animation-delay: .4s;
+}
+
+#pro-contents .view-btn.active {
+  -webkit-animation: fade .8s forwards ease-in-out;
+  -moz-animation: fade .8s forwards ease-in-out;
+  animation: fade .8s forwards ease-in-out;
+  -webkit-animation-delay: .6s;
+  -moz-animation-delay: .6s;
+  animation-delay: .6s;
+}
+
+/* 아래서 위로 서서히 나타나게 */
+@-webkit-keyframes fade {
+  0% {
+    top: 50px;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fade {
+  0% {
+    top: 50px;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    top: 50px;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+/* ------  콘텍트 섹션 ------ */
+.contact {
+  position: relative;
+  max-width: 1620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact .info {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.contact .mail {
+  max-width: 650px;
+}
+
+.contact .mail .input-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px
+}
+
+.contact .mail input,
+.contact .mail textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 3px;
+  background-color: #F4F0ED
+}
+
+.contact .mail textarea {
+  min-height: 150px
+}
+
+.contact .mail input:focus {
+  outline: none
+}
+
+.contact .mail textarea:focus {
+  outline: none
+}

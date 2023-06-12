@@ -15,11 +15,11 @@ $(document).ready(function () {
 
     // 스크롤 다운
     if (Scroll >= mainOffset && Scroll <= mainHeight) {
-      $(".bg-wrap img").stop().animate({ "right": Scroll * 0.06 }, 1500, "easeOutExpo");
+      $(".bg-wrap img").stop().animate({ "right": Scroll * 0.05 }, 1000, "easeOutExpo");
     }
     // 스크롤 업
     else {
-      $(".bg-wrap img").stop().animate({ "right": -(Scroll * 0.06) }, 1500, "easeOutExpo");
+      $(".bg-wrap img").stop().animate({ "right": -(Scroll * 0.05) }, 1000, "easeOutExpo");
     }
 
 
@@ -85,6 +85,30 @@ $(document).ready(function () {
         $("#img-wrap img").eq(i).removeClass("active");
         $("#img-wrap img").eq(i).addClass("active2");
       }
+    }
+
+
+    // ---------- 콘텍트 애니메이션 ----------
+
+    let contactOffset = $(".contact").offset().top;
+
+    if (Scroll >= contactOffset) {
+      $(".contact").css({"background": "#111111"});
+      $(".cate-btn span").addClass("bg");
+      $(".logo").css({"display": "none"});
+      $(".con-logo").css({"display": "block"});
+      $(".section-title").css({"color": "#87FF29", "font-size": "150px"});
+      $(".mail").css({"transform": "translateY(0)", "opacity": 1});
+
+    } 
+    
+    else if (Scroll < contactOffset) {
+      $(".contact").css({"background": "#fff"});
+      $(".cate-btn span").removeClass("bg");
+      $(".logo").css({"display": "block"});
+      $(".con-logo").css({"display": "none"});
+      $(".section-title").css({"color": "#E9E9E9", "font-size": "110px"});
+      $(".mail").css({"transform": "translateY(200px)", "opacity": 0});
     }
   }
 

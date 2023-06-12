@@ -28,7 +28,7 @@ main {
   position: absolute;
   top: 50px;
   left: 0;
-  font-size: 130px;
+  font-size: 120px;
   font-family: "NHaas-M";
   color: #E9E9E9;
   letter-spacing: -0.04em;
@@ -62,8 +62,24 @@ nav .logo {
   float: left;
 }
 
+/* 콘텍트 센션 로고 색상 변경 */
+nav .con-logo {
+  position: fixed;
+  width: 38px;
+  float: left;
+  display: none;
+}
+
 /* 카테고리 버튼 */
 nav .cate-btn {
+  position: fixed;
+  right: 50px;
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px 0;
+}
+
+nav .con-cate-btn {
   position: fixed;
   right: 50px;
   cursor: pointer;
@@ -82,20 +98,38 @@ nav .cate-btn span {
   transition: all .5s;
 }
 
+/* 스크롤 값이 콘텍트 섹션에 진입하면 색상 변경 */
+nav .cate-btn span.bg {
+  background: #fff;
+}
+
 nav .cate-btn span:nth-child(2) {
   margin-bottom: 8px;
 }
 
 /* 카테고리 라인 close버튼 토글 */
 nav .cate-btn span:nth-child(2).toggle {
-  transform: rotate(135deg); 
-  background: #fff;
+  transform: rotate(135deg);
+  background-color: #fff;
   top: 2px;
   margin: 0;
 }
 
 nav .cate-btn span:nth-child(3).toggle {
-  transform: rotate(-135deg); 
+  transform: rotate(-135deg);
+  background-color: #fff;
+}
+
+/* 카테고리 라인 close버튼 토글 */
+nav .con-cate-btn span:nth-child(2).toggle {
+  transform: rotate(135deg);
+  background: #fff;
+  top: 2px;
+  margin: 0;
+}
+
+nav .con-cate-btn span:nth-child(3).toggle {
+  transform: rotate(-135deg);
   background: #fff;
 }
 
@@ -109,13 +143,13 @@ nav .category {
   background: #111111;
   padding: 0 200px;
   box-sizing: border-box;
-  clip-path: inset(0 0 0 100%); 
+  clip-path: inset(0 0 0 100%);
   transition: all 1s ease-in-out;
 }
 
 /* 카테고리 오픈 토글 */
 nav .category.open {
-  clip-path: inset(0 0 0 0); 
+  clip-path: inset(0 0 0 0);
 }
 
 /* 메뉴 */
@@ -139,8 +173,6 @@ nav .menu li {
   opacity: 0;
   cursor: pointer;
 }
-
-
 
 nav .menu li:hover {
   color: #87FF29;
@@ -206,7 +238,7 @@ nav .menu li:hover {
   width: 810px;
   height: 540px;
   overflow: hidden;
-  clip-path: inset(0 0 0 0 round 0%); 
+  clip-path: inset(0 0 0 0 round 0%);
   -webkit-animation: maskCircle 1s forwards ease-in-out;
   -moz-animation: maskCircle 1s forwards ease-in-out;
   animation: maskCircle 1s forwards ease-in-out;
@@ -220,13 +252,13 @@ nav .menu li:hover {
   0% {
     width: 810px;
     height: 540px;
-    clip-path: inset(0 0 0 0 round 0%); 
+    clip-path: inset(0 0 0 0 round 0%);
   }
 
   100% {
     width: 540px;
     height: 540px;
-    clip-path: inset(0 0 0 0 round 50%); 
+    clip-path: inset(0 0 0 0 round 50%);
   }
 }
 
@@ -234,13 +266,13 @@ nav .menu li:hover {
   0% {
     width: 810px;
     height: 540px;
-    clip-path: inset(0 0 0 0 round 0%); 
+    clip-path: inset(0 0 0 0 round 0%);
   }
 
   100% {
     width: 540px;
     height: 540px;
-    clip-path: inset(0 0 0 0 round 50%); 
+    clip-path: inset(0 0 0 0 round 50%);
   }
 }
 
@@ -248,13 +280,13 @@ nav .menu li:hover {
   0% {
     width: 810px;
     height: 540px;
-    clip-path: inset(0 0 0 0 round 0%); 
+    clip-path: inset(0 0 0 0 round 0%);
   }
 
   100% {
     width: 540px;
     height: 540px;
-    clip-path: inset(0 0 0 0 round 50%); 
+    clip-path: inset(0 0 0 0 round 50%);
   }
 }
 
@@ -264,7 +296,7 @@ nav .menu li:hover {
   width: 810px;
   height: 540px;
   object-fit: cover;
-  clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   opacity: 0;
   transform: scale(1.1);
   -webkit-animation: maskpoly 1s ease-in-out forwards;
@@ -279,36 +311,36 @@ nav .menu li:hover {
 @-webkit-keyframes maskpoly {
   0% {
     opacity: 0;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
 
   100% {
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
 @-moz-keyframes maskpoly {
   0% {
     opacity: 0;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
 
   100% {
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
 @keyframes maskpoly {
   0% {
     opacity: 0;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
 
   100% {
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
@@ -484,14 +516,14 @@ nav .menu li:hover {
 }
 
 #img-wrap img.active {
-  clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   -webkit-animation: maskPolyDown 1s forwards ease-in-out;
   -moz-animation: maskPolyDown 1s forwards ease-in-out;
   animation: maskPolyDown 1s forwards ease-in-out;
 }
 
 #img-wrap img.active2 {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   -webkit-animation: maskPolyUp 1s forwards ease-in-out;
   -moz-animation: maskPolyUp 1s forwards ease-in-out;
   animation: maskPolyUp 1s forwards ease-in-out;
@@ -501,36 +533,36 @@ nav .menu li:hover {
 @-webkit-keyframes maskPolyDown {
   0% {
     opacity: 0;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
 
   100% {
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
 @-moz-keyframes maskPolyDown {
   0% {
     opacity: 0;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
 
   100% {
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
 @keyframes maskPolyDown {
   0% {
     opacity: 0;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
 
   100% {
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
@@ -538,36 +570,36 @@ nav .menu li:hover {
 @-webkit-keyframes maskPolyUp {
   0% {
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
   100% {
     opacity: 0;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
 }
 
 @-moz-keyframes maskPolyUp {
   0% {
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
   100% {
     opacity: 0;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
 }
 
 @keyframes maskPolyUp {
   0% {
     opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
   100% {
     opacity: 0;
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100% );
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
 }
 
@@ -777,48 +809,92 @@ nav .menu li:hover {
 
 /* ------  콘텍트 섹션 ------ */
 .contact {
+  transition: all .6s;
+}
+
+.contact .contact-wrap {
   position: relative;
   max-width: 1620px;
+  height: 100%;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.contact .info {
+.contact .contact-wrap .section-title {
+  transition: all 1s ease-in-out;
+  z-index: 1;
+}
+
+.contact .contact-wrap .mail {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(200px);
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  padding-top: 60px;
+}
+
+.contact .contact-wrap .info {
   font-size: 24px;
   margin-bottom: 30px;
+  color: #fff;
 }
 
-.contact .mail {
-  max-width: 650px;
-}
-
-.contact .mail .input-box {
+.contact .contact-wrap .mail .input-box {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 10px
+  gap: 10px;
 }
 
-.contact .mail input,
-.contact .mail textarea {
+.contact .contact-wrap .mail input,
+.contact .contact-wrap .mail textarea {
   box-sizing: border-box;
   width: 100%;
   border: none;
   padding: 10px;
   margin-top: 10px;
+  background: transparent;
   border-radius: 3px;
-  background-color: #F4F0ED
+  border: 1px solid #c9c9c9;
+  color: #fff;
 }
 
-.contact .mail textarea {
-  min-height: 150px
+.contact .contact-wrap .mail textarea {
+  min-height: 200px;
 }
 
 .contact .mail input:focus {
-  outline: none
+  outline: none;
 }
 
-.contact .mail textarea:focus {
-  outline: none
+.contact .contact-wrap .mail textarea:focus {
+  outline: none;
+}
+
+/* 보내기 버튼 */
+.mail button {
+  margin-top: 50px;
+  padding: 0.8rem 1.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .4s;
+  background: transparent;
+  border: solid 1px #c9c9c9;
+  border-radius: 50px;
+  color: #fff;
+  font-family: "NHaas-B";
+  display: block;
+  text-align: center;
+}
+
+.mail button:hover {
+  background: #87FF29;
+  color: #111111;
+  border: 1px solid #87FF29;
 }

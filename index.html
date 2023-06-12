@@ -26,12 +26,14 @@
       <!-- 로고 -->
       <h2 class="hidden">로고</h2>
       <img class="logo" src="image/logo.png" alt="JE로고">
+      <img class="con-logo" src="image/logo_w.png" alt="JE로고">
       <!-- 카테고리 -->
       <div class="cate-btn">
         <h2 class="hidden">카테고리 버튼</h2>
         <span class="ii"></span>
         <span></span>
       </div>
+
       <div class="category">
 
         <!-- 메뉴 -->
@@ -172,29 +174,32 @@
             <p class="number">02</p>
           </div>
           <div class="hidden-wrap">
-            <h4 class="pro-name">lush bathbomb</h4>
+            <h4 class="pro-name">root fresh</h4>
           </div>
         </li>
         <!-- 사용 스킬 -->
         <li class="pro-skill">
+          <span>#반응형</span>
+          <span>#React</span>
           <span>#Javascript</span>
-          <span>#Jquery</span>
-          <span>#scss</span>
+          <span>#Redux</span>
         </li>
         <!-- 설명 -->
         <li class="description">
           <p>기여도: 100%</p>
           <p>
-            러쉬의의 바스밤을 소개하는 웹사이트 입니다.<br>
-            바스밤이 물에 녹아 퍼지는 듯한 몽환적인 분위기를 연출하고자 메인페이지에 영상을 삽입하여 표현하습니다.<br>
-            제이쿼리를 이용해 기능을 구현하였으며 다른 라이브러리는 사용하지 않았습니다.
+            뿌리부터 신선한 식재료를 판매하는 오픈 마켓 컨셉의
+            쇼핑몰 사이트입니다. 신선한 느낌을 주기 위해 녹색 계열의
+            컬러를 메인으로 하였으며 깔끔한 UI로 디자인 하였습니다.
+            반복되는 페이지가 많아 SPA인 React 프로젝트를 이용하여 사이트를 구현하였습니다.
           </p>
         </li>
         <!-- 주요 기능 -->
         <li class="technique">
           <h5>주요 기능</h5>
-          <p>스크롤 애니메이션</p>
-          <p>스크롤 가로 휠 애니메이션</p>
+          <p>장바구니, 검색, 필터, 로그인, 회원가입 기능</p>
+          <p>디테일 페이지, 메뉴바 고정, 탭 메뉴, 모달창</p>
+          <p>반응형 모바일에 최적화된 UI</p>
         </li>
         <!-- 프로젝트 보기 버튼 -->
         <li class="view-btn">
@@ -210,11 +215,12 @@
             <p class="number">03</p>
           </div>
           <div class="hidden-wrap">
-            <h4 class="pro-name">lush bathbomb</h4>
+            <h4 class="pro-name">bestseller</h4>
           </div>
         </li>
         <!-- 사용 스킬 -->
         <li class="pro-skill">
+          <span>#반응형</span>
           <span>#Javascript</span>
           <span>#Jquery</span>
           <span>#scss</span>
@@ -247,14 +253,13 @@
             <p class="number">04</p>
           </div>
           <div class="hidden-wrap">
-            <h4 class="pro-name">lush bathbomb</h4>
+            <h4 class="pro-name">rock scissor<br> paper game</h4>
           </div>
         </li>
         <!-- 사용 스킬 -->
         <li class="pro-skill">
+          <span>#React</span>
           <span>#Javascript</span>
-          <span>#Jquery</span>
-          <span>#scss</span>
         </li>
         <!-- 설명 -->
         <li class="description">
@@ -281,21 +286,21 @@
   <section class="contact">
     <h2 class="hidden">콘텍트 페이지</h2>
 
-    <!-- 콘텍트 타이틀 -->
-    <h4 class="section-title">contact us</h4>
+    <div class="contact-wrap">
+      <!-- 콘텍트 타이틀 -->
+      <h4 class="section-title">contact us</h4>
 
-    <!-- emailjs -->
-    <div class="mail">
-      <p class="info">입력 후 버튼을 클릭하시면 메일이 전송됩니다.</p>
-      <div class="input-box">
-        <input type="text" id="name" placeholder="이름" required />
-        <input type="email" id="email" placeholder="이메일" required />
+      <!-- emailjs -->
+      <div class="mail">
+        <div class="input-box">
+          <input type="text" id="name" placeholder="이름" required>
+          <input type="email" id="email" placeholder="이메일" required>
+        </div>
+        <input type="text" id="subject" placeholder="제목" required><br>
+        <textarea id="message" placeholder="보내실 내용을 입력해주세요."></textarea required><br>
+        <button onclick="sendEmail()">send</button>
       </div>
-      <input type="text" id="subject" placeholder="제목" required /><br />
-      <textarea id="message" placeholder="보내실 내용을 입력해주세요."></textarea required><br />
-      <button onclick="sendEmail()">send</button>
     </div>
-
   </section>
 
   <!-- jquery -->
@@ -304,9 +309,18 @@
     crossorigin="anonymous">
     </script>
   <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+   <!-- emailjs -->
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+   <script type="text/javascript">
+    (function () {
+      // 공개키
+      emailjs.init("safhfbobRTqExyi99");
+    })();
+  </script>
   <!-- script -->
   <script src="js/scrollAni.js"></script>
   <script src="js/category.js"></script>
+  <script src="js/email.js"></script>
 </body>
 
 </html>

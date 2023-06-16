@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
+  <!-- favicon -->
+  <link rel="icon" href="image/favicon.png">
   <!-- css -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/font.css">
@@ -15,36 +17,55 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
     rel="stylesheet">
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+  <!-- emailjs -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      // 공개키
+      emailjs.init("safhfbobRTqExyi99");
+    })();
+  </script>
+  <!-- script -->
+  <script src="js/scrollAni.js"></script>
+  <script src="js/category.js"></script>
+  <script src="js/skillTab.js"></script>
+  <script src="js/menuScroll.js"></script>
+  <script src="js/email.js"></script>
 </head>
 
 <body>
-  <main>
+  <!-- 탑 네비게이션 -->
+  <nav>
+    <!-- 로고 -->
+    <h2 class="hidden">로고</h2>
+    <img class="logo" src="image/logo.png" alt="JE로고">
+    <img class="con-logo" src="image/logo_w.png" alt="JE로고">
+    <!-- 카테고리 -->
+    <div class="cate-btn">
+      <h2 class="hidden">카테고리 버튼</h2>
+      <span class="ii"></span>
+      <span></span>
+    </div>
+
+    <div class="category">
+      <!-- 메뉴 -->
+      <h2 class="hidden">카테고리 메뉴</h2>
+      <ul id="menu">
+        <li>main</li>
+        <li>about</li>
+        <li>project</li>
+        <li>contact us</li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="main">
     <h2 class="hidden">메인 페이지</h2>
-
-    <!-- 탑 네비게이션 -->
-    <nav>
-      <!-- 로고 -->
-      <h2 class="hidden">로고</h2>
-      <img class="logo" src="image/logo.png" alt="JE로고">
-      <img class="con-logo" src="image/logo_w.png" alt="JE로고">
-      <!-- 카테고리 -->
-      <div class="cate-btn">
-        <h2 class="hidden">카테고리 버튼</h2>
-        <span class="ii"></span>
-        <span></span>
-      </div>
-
-      <div class="category">
-
-        <!-- 메뉴 -->
-        <ul class="menu">
-          <li>main</li>
-          <li>about</li>
-          <li>project</li>
-          <li>contact us</li>
-        </ul>
-      </div>
-    </nav>
 
     <!-- 메인 컨테이너 -->
     <div class="main-container">
@@ -64,9 +85,9 @@
         <img src="image/main_circle_bg.png" alt="프로젝트를 모아놓은 원형 이미지">
       </div>
     </div>
-  </main>
+  </section>
 
-  <section class="about">
+  <section id="about">
     <h2 class="hidden">어바웃 페이지</h2>
 
     <!-- 섹션 타이틀 -->
@@ -98,32 +119,60 @@
           발전해 나가겠습니다.
         </p>
       </li>
+
+      <!-- 스킬 탭 -->
       <li>
         <div class="hidden-wrap">
-          <h4 class="about-title">팀과 협력하고 원활한 의사소통이 되는 웹퍼블리셔</h4>
+          <h4 class="about-title">저는 이런 기술을 사용할 수 있습니다</h4>
         </div>
-        <p class="about-content">
-          코딩을 배우면서 가장 중요한 것은 기본기라는 것을
-          깨닫게 되었습니다. 웹표준과, 웹접근성, 크로스브라우징과 같은
-          개념을 이해하고 프로젝트 진행시 1순위로 고려하여 진행하였습니다.
-          앞으로도 남녀노소 많은 사람들이 편안하게 웹을 이용할 수 있게
-          기본을 잘 지키며 좋은 영향력을 주는 전문적인 웹퍼블리셔로
-          발전해 나가겠습니다.
-        </p>
+        <div class="skills-tab about-content">
+          <!-- 탭 버튼 -->
+          <ul class="skills-btn">
+            <li class="on">javascript</li>
+            <li>react</li>
+            <li>html/css</li>
+            <li>others</li>
+          </ul>
+
+          <!-- 탭 내용 -->
+          <div class="skill-content">
+            <div class="skill on">
+              <p>ES6문법 활용</p>
+              <p>Jquery 라이브러리를 이용한 애니메이션 기능 구현</p>
+              <p>장바구니, 로그인, 회원가입, 탭등 다양한 기능 구현</p>
+            </div>
+            <div class="skill">
+              <p>JSX문법을 사용하여 레이아웃 제작</p>
+              <p>Component, Props, Router 등 React에 대한 이해</p>
+              <p>React Hook을 활용한 기능 구현</p>
+              <p>Styled-component를 이용한 CSS 작성</p>
+            </div>
+            <div class="skill">
+              <p>웹 표준, 웹 접근성을 준수한 웹 페이지 제작 </p>
+              <p>시멘틱 마크업을 통한 의미있는 구조 설계</p>
+              <p>반응형 웹사이트 구축</p>
+              <p>SCSS를 이용한 프리프로세싱</p>
+            </div>
+            <div class="skill">
+              <p>UIUX에 대한 이해</p>
+              <p>Potoshop, Illustrator, Figma를 이용하여 <br>웹 사이트 시안 제작</p>
+              <p>Github 관리</p>
+            </div>
+          </div>
+        </div>
       </li>
     </ul>
   </section>
 
-  <section class="project">
+  <section id="project">
     <h2 class="hidden">프로젝트 페이지</h2>
 
     <!-- 프로젝트 이미지(왼쪽)-->
-    <div id="img-wrap">
+    <div class="img-wrap">
       <h4 class="section-title">project</h4> <!-- 프로젝트 타이틀 -->
       <img src="image/project1.png" alt="러쉬 바쓰밤 프로젝트 이미지">
-      <img src="image/project2.png" alt="러쉬 바쓰밤 프로젝트 이미지">
-      <img src="image/project3.png" alt="러쉬 바쓰밤 프로젝트 이미지">
-      <img src="image/project4.png" alt="러쉬 바쓰밤 프로젝트 이미지">
+      <img src="image/project2.png" alt="루트 프레시 프로젝트 이미지">
+      <img src="image/project3.png" alt="가위바위보 게임 프로젝트 이미지">
     </div>
     <!-- 프로젝트 내용(오른쪽) -->
     <div class="contents-wrap">
@@ -162,7 +211,9 @@
         </li>
         <!-- 프로젝트 보기 버튼 -->
         <li class="view-btn">
-          <button>view</button>
+          <a href="https://jieuning.github.io/Lush-Bathbomb/">
+            <button>view</button>
+          </a>
         </li>
       </ul>
 
@@ -182,7 +233,6 @@
           <span>#반응형</span>
           <span>#React</span>
           <span>#Javascript</span>
-          <span>#Redux</span>
         </li>
         <!-- 설명 -->
         <li class="description">
@@ -191,7 +241,8 @@
             뿌리부터 신선한 식재료를 판매하는 오픈 마켓 컨셉의
             쇼핑몰 사이트입니다. 신선한 느낌을 주기 위해 녹색 계열의
             컬러를 메인으로 하였으며 깔끔한 UI로 디자인 하였습니다.
-            반복되는 페이지가 많아 SPA인 React 프로젝트를 이용하여 사이트를 구현하였습니다.
+            반복되는 페이지를 효율적으로 구현하기 위해 SPA인 React 프로젝트를
+            이용하여 사이트를 제작하였습니다.
           </p>
         </li>
         <!-- 주요 기능 -->
@@ -203,7 +254,9 @@
         </li>
         <!-- 프로젝트 보기 버튼 -->
         <li class="view-btn">
-          <button>view</button>
+          <a href="https://jieuning.github.io/rootfresh/">
+            <button>view</button>
+          </a>
         </li>
       </ul>
 
@@ -213,44 +266,6 @@
         <li class="pro-title">
           <div class="hidden-wrap">
             <p class="number">03</p>
-          </div>
-          <div class="hidden-wrap">
-            <h4 class="pro-name">bestseller</h4>
-          </div>
-        </li>
-        <!-- 사용 스킬 -->
-        <li class="pro-skill">
-          <span>#반응형</span>
-          <span>#Javascript</span>
-          <span>#Jquery</span>
-          <span>#scss</span>
-        </li>
-        <!-- 설명 -->
-        <li class="description">
-          <p>기여도: 100%</p>
-          <p>
-            러쉬의의 바스밤을 소개하는 웹사이트 입니다.<br>
-            바스밤이 물에 녹아 퍼지는 듯한 몽환적인 분위기를 연출하고자 메인페이지에 영상을 삽입하여 표현하습니다.<br>
-            제이쿼리를 이용해 기능을 구현하였으며 다른 라이브러리는 사용하지 않았습니다.
-          </p>
-        </li>
-        <!-- 주요 기능 -->
-        <li class="technique">
-          <h5>주요 기능</h5>
-          <p>스크롤 애니메이션</p>
-          <p>스크롤 가로 휠 애니메이션</p>
-        </li>
-        <li class="view-btn">
-          <button>view</button>
-        </li>
-      </ul>
-
-      <!-- 프로젝트 콘텐츠 4 -->
-      <ul id="pro-contents">
-        <!-- 타이틀 -->
-        <li class="pro-title">
-          <div class="hidden-wrap">
-            <p class="number">04</p>
           </div>
           <div class="hidden-wrap">
             <h4 class="pro-name">rock scissor<br> paper game</h4>
@@ -263,27 +278,30 @@
         </li>
         <!-- 설명 -->
         <li class="description">
-          <p>기여도: 100%</p>
+          <p>기여도: 80%</p>
           <p>
-            러쉬의의 바스밤을 소개하는 웹사이트 입니다.<br>
-            바스밤이 물에 녹아 퍼지는 듯한 몽환적인 분위기를 연출하고자 메인페이지에 영상을 삽입하여 표현하습니다.<br>
-            제이쿼리를 이용해 기능을 구현하였으며 다른 라이브러리는 사용하지 않았습니다.
+            가위바위보 게임을 간단하게 즐길 수 있는 웹사이트 입니다.<br>
+            장난스러운 분위기를 연출하고자 밝고 대비되는 색상을 사용하였고 입체적인 느낌을 위해 그림자 효과를 주었습니다.
           </p>
         </li>
         <!-- 주요 기능 -->
         <li class="technique">
           <h5>주요 기능</h5>
-          <p>스크롤 애니메이션</p>
-          <p>스크롤 가로 휠 애니메이션</p>
+          <p>랜덤으로 패를 바꿔주는 기능</p>
+          <p>승부 기록</p>
+          <p>배점 기능</p>
+          <p>초기화 기능</p>
         </li>
-        <!-- 프로젝트 보기 버튼 -->
         <li class="view-btn">
-          <button>view</button>
+          <a href="https://jieuning.github.io/rock-scissor-paper/">
+            <button>view</button>
+          </a>
         </li>
       </ul>
     </div>
   </section>
-  <section class="contact">
+
+  <section id="contact">
     <h2 class="hidden">콘텍트 페이지</h2>
 
     <div class="contact-wrap">
@@ -292,35 +310,22 @@
 
       <!-- emailjs -->
       <div class="mail">
+        <h2 class="hidden">메일 보내기기</h2>
         <div class="input-box">
+          <h2 class="hidden">이름 입력칸</h2>
           <input type="text" id="name" placeholder="이름" required>
+          <h2 class="hidden">이메일 입력칸</h2>
           <input type="email" id="email" placeholder="이메일" required>
         </div>
+        <h2 class="hidden">제목 입력칸</h2>
         <input type="text" id="subject" placeholder="제목" required><br>
+        <h2 class="hidden">내용 입력 텍스트 박스</h2>
         <textarea id="message" placeholder="보내실 내용을 입력해주세요."></textarea required><br>
+        <h2 class="hidden">보내기 버튼</h2>
         <button onclick="sendEmail()">send</button>
       </div>
     </div>
   </section>
-
-  <!-- jquery -->
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
-    crossorigin="anonymous">
-    </script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
-   <!-- emailjs -->
-   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-   <script type="text/javascript">
-    (function () {
-      // 공개키
-      emailjs.init("safhfbobRTqExyi99");
-    })();
-  </script>
-  <!-- script -->
-  <script src="js/scrollAni.js"></script>
-  <script src="js/category.js"></script>
-  <script src="js/email.js"></script>
 </body>
 
 </html>

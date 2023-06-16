@@ -8,8 +8,7 @@ html {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-section,
-main {
+section {
   max-width: 1920px;
   height: 100vh;
   margin: 0 auto;
@@ -153,7 +152,7 @@ nav .category.open {
 }
 
 /* 메뉴 */
-nav .menu {
+nav #menu {
   color: #fff;
   width: 100%;
   height: 100%;
@@ -167,14 +166,14 @@ nav .menu {
 }
 
 /* 메뉴 버튼 호버 */
-nav .menu li {
+nav #menu li {
   position: relative;
   left: 100px;
   opacity: 0;
   cursor: pointer;
 }
 
-nav .menu li:hover {
+nav #menu li:hover {
   color: #87FF29;
 }
 
@@ -347,7 +346,7 @@ nav .menu li:hover {
 
 /* ------  어바웃 섹션 ------ */
 
-.about {
+#about {
   position: relative;
   max-width: 1620px;
   display: flex;
@@ -357,19 +356,19 @@ nav .menu li:hover {
   gap: 25%;
 }
 
-.about h4 {
+#about h4 {
   top: 110px;
 }
 
 /* 프로필 이미지 */
-.about img {
+#about img {
   width: 402px;
   opacity: 0;
   clip-path: circle(0 at 50% 50%);
 }
 
 /* 프로필 이미지 애니메이션 */
-.about img.active {
+#about img.active {
   -webkit-animation: maskCircle2 1.5s forwards ease-in-out;
   -moz-animation: maskCircle2 1.5s forwards ease-in-out;
   animation: maskCircle2 1.5s forwards ease-in-out;
@@ -413,14 +412,14 @@ nav .menu li:hover {
 }
 
 /* 프로필 정보 */
-.about .profile {
+#about .profile {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "NHaas-R";
 }
 
-.about .profile .profile-info {
+#about .profile .profile-info {
   position: relative;
   top: 50px;
   opacity: 0;
@@ -438,24 +437,74 @@ nav .menu li:hover {
   animation-delay: .5s;
 }
 
-.about .profile .profile-info .name {
+#about .profile .profile-info .name {
   font-family: "NHaas-M";
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 20px;
 }
 
 /* 어바웃미 */
-.about .about-me {
+#about .about-me {
   display: flex;
   width: 100%;
   flex-direction: column;
-  gap: 60px;
+  gap: 80px;
   word-break: keep-all;
   line-height: 1.5;
 }
 
+/* 스킬 탭 */
+.about-me li .skills-tab {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 스킬 탭 버튼 */
+.about-me .skills-btn li {
+  border: none;
+  color: #9a9a9a;
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-family: "NHaas-M";
+  margin-right: 10px;
+  cursor: pointer;
+  float: left;
+  transition: all .4s;
+  text-transform: uppercase;
+}
+
+/* 스킬 탭 호버 */
+.about-me .skills-tab .skills-btn li:hover {
+  background: #87FF29;
+  color: #111111;
+}
+
+/* 스킬 탭 클릭 온 */
+.about-me .skills-tab .skills-btn li.on {
+  background: #111111;
+  color: #87FF29;
+}
+
+/* 스킬 내용 */
+.about-me .skills-tab .skill-content {
+  position: relative;
+  min-height: 100px;
+}
+
+.about-me .skills-tab .skill-content .skill {
+  margin: 20px 0 0 10px;
+  position: absolute;
+  display: none;
+}
+
+/* 스킬 내용 온 */
+.about-me .skills-tab .skill-content .skill.on {
+  display: block;
+}
+
 /* 어바웃 미 타이틀 */
-.about .about-me .about-title {
+#about .about-me .about-title {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -473,14 +522,14 @@ nav .menu li:hover {
 }
 
 /* 어바웃 미 내용 */
-.about .about-me li p {
+#about .about-me li .about-content {
   position: relative;
   top: 50px;
   opacity: 0;
 }
 
 /* 어바웃 미 내용 텍스트 */
-.about-me li p.active {
+.about-me li .about-content.active {
   -webkit-animation: fade 1s forwards ease-in-out;
   -moz-animation: fade 1s forwards ease-in-out;
   animation: fade 1s forwards ease-in-out;
@@ -489,9 +538,10 @@ nav .menu li:hover {
   animation-delay: 1.5s;
 }
 
+
 /* ------  프로젝트 섹션 ------ */
 
-.project {
+#project {
   max-width: 1620px;
   height: auto;
   display: flex;
@@ -499,7 +549,7 @@ nav .menu li:hover {
 
 /* 프로젝트 이미지(왼쪽) */
 /* 탑에 스티키 */
-.project #img-wrap {
+#project .img-wrap {
   position: sticky;
   display: flex;
   align-items: center;
@@ -508,21 +558,21 @@ nav .menu li:hover {
   height: 100vh;
 }
 
-.project #img-wrap img {
+#project .img-wrap img {
   position: absolute;
   width: 810px;
   object-fit: contain;
   opacity: 0;
 }
 
-#img-wrap img.active {
+.img-wrap img.active {
   clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   -webkit-animation: maskPolyDown 1s forwards ease-in-out;
   -moz-animation: maskPolyDown 1s forwards ease-in-out;
   animation: maskPolyDown 1s forwards ease-in-out;
 }
 
-#img-wrap img.active2 {
+.img-wrap img.active2 {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   -webkit-animation: maskPolyUp 1s forwards ease-in-out;
   -moz-animation: maskPolyUp 1s forwards ease-in-out;
@@ -605,14 +655,14 @@ nav .menu li:hover {
 
 
 /* 프로젝트 컨텐츠(오른쪽) */
-.project .contents-wrap {
+#project .contents-wrap {
   text-align: right;
   display: flex;
   flex-direction: column;
   width: 50%;
 }
 
-.project .contents-wrap #pro-contents {
+#project .contents-wrap #pro-contents {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -622,7 +672,7 @@ nav .menu li:hover {
 }
 
 /* 프로젝트 타이틀 */
-.project .contents-wrap #pro-contents .pro-title {
+#project .contents-wrap #pro-contents .pro-title {
   font-family: "NHaas-B";
   font-size: 63px;
   text-transform: uppercase;
@@ -631,15 +681,15 @@ nav .menu li:hover {
 }
 
 /* 프로젝트 넘버 */
-.project .contents-wrap #pro-contents .pro-title .hidden-wrap .number {
+#project .contents-wrap #pro-contents .pro-title .hidden-wrap .number {
   color: #87FF29;
   font-size: 112px;
-  transform: translateY(130px);
+  transform: translateY(150px);
 }
 
 /* 프로젝트명 */
-.project .contents-wrap #pro-contents .pro-title .hidden-wrap .pro-name {
-  transform: translateY(130px);
+#project .contents-wrap #pro-contents .pro-title .hidden-wrap .pro-name {
+  transform: translateY(150px);
 }
 
 /* 프로젝트 넘버, 타이틀 애니메이션 */
@@ -654,7 +704,7 @@ nav .menu li:hover {
 /* 텍스트 아래에서 위로 등장 */
 @-webkit-keyframes hiddenTitle {
   0% {
-    transform: translateY(130px);
+    transform: translateY(150px);
   }
 
   100% {
@@ -664,7 +714,7 @@ nav .menu li:hover {
 
 @-moz-keyframes hiddenTitle {
   0% {
-    transform: translateY(130px);
+    transform: translateY(150px);
   }
 
   100% {
@@ -674,7 +724,7 @@ nav .menu li:hover {
 
 @keyframes hiddenTitle {
   0% {
-    transform: translateY(130px);
+    transform: translateY(150px);
   }
 
   100% {
@@ -683,7 +733,7 @@ nav .menu li:hover {
 }
 
 /* 프로젝트 스킬 */
-.project .contents-wrap #pro-contents .pro-skill span {
+#project .contents-wrap #pro-contents .pro-skill span {
   font-family: "NHaas-R";
   background: #111111;
   color: #fff;
@@ -694,29 +744,29 @@ nav .menu li:hover {
 }
 
 /* 프로젝트 설명 텍스트 */
-.project .contents-wrap #pro-contents .description {
+#project .contents-wrap #pro-contents .description {
   width: 480px;
   word-break: keep-all;
   line-height: 1.4;
 }
 
 /* 기여도 */
-.project .contents-wrap #pro-contents .description p:nth-child(1) {
+#project .contents-wrap #pro-contents .description p:nth-child(1) {
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 /* 주요 기능 */
-.project .contents-wrap #pro-contents .technique {
+#project .contents-wrap #pro-contents .technique {
   line-height: 1.4;
 }
 
-.project .contents-wrap #pro-contents .technique h5 {
+#project .contents-wrap #pro-contents .technique h5 {
   font-weight: 600;
 }
 
 /* 뷰 버튼 */
-.project .contents-wrap #pro-contents .view-btn button {
+#project .contents-wrap #pro-contents .view-btn button {
   border: none;
   border-radius: 50px;
   padding: 8px 16px 6px 16px;
@@ -724,6 +774,12 @@ nav .menu li:hover {
   font-family: "NHaas-B";
   text-transform: uppercase;
   cursor: pointer;
+  transition: all .6s;
+}
+
+#project .contents-wrap #pro-contents .view-btn button:hover {
+  background: #111111;
+  color: #87FF29;
 }
 
 /* 프로젝트 컨텐츠(타이틀 제외) 애니메이션 */
@@ -808,11 +864,11 @@ nav .menu li:hover {
 }
 
 /* ------  콘텍트 섹션 ------ */
-.contact {
+#contact {
   transition: all .6s;
 }
 
-.contact .contact-wrap {
+#contact .contact-wrap {
   position: relative;
   max-width: 1620px;
   height: 100%;
@@ -822,12 +878,12 @@ nav .menu li:hover {
   align-items: center;
 }
 
-.contact .contact-wrap .section-title {
+#contact .contact-wrap .section-title {
   transition: all 1s ease-in-out;
   z-index: 1;
 }
 
-.contact .contact-wrap .mail {
+#contact .contact-wrap .mail {
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -838,21 +894,23 @@ nav .menu li:hover {
   padding-top: 60px;
 }
 
-.contact .contact-wrap .info {
+#contact .contact-wrap .info {
   font-size: 24px;
   margin-bottom: 30px;
   color: #fff;
 }
 
-.contact .contact-wrap .mail .input-box {
+/* 메일 인풋 박스 */
+#contact .contact-wrap .mail .input-box {
   width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
-.contact .contact-wrap .mail input,
-.contact .contact-wrap .mail textarea {
+/* 메일 인풋 박스, 텍스트 박스 공통 */
+#contact .contact-wrap .mail input,
+#contact .contact-wrap .mail textarea {
   box-sizing: border-box;
   width: 100%;
   border: none;
@@ -864,15 +922,14 @@ nav .menu li:hover {
   color: #fff;
 }
 
-.contact .contact-wrap .mail textarea {
+/* 메일 텍스트 박스 */
+#contact .contact-wrap .mail textarea {
   min-height: 200px;
 }
 
-.contact .mail input:focus {
-  outline: none;
-}
-
-.contact .contact-wrap .mail textarea:focus {
+/* 클릭시 아웃라인 비활성화 */
+#contact .mail input:focus,
+#contact .contact-wrap .mail textarea:focus {
   outline: none;
 }
 
@@ -893,6 +950,7 @@ nav .menu li:hover {
   text-align: center;
 }
 
+/* 버튼 호버 */
 .mail button:hover {
   background: #87FF29;
   color: #111111;

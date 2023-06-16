@@ -10,8 +10,8 @@ $(document).ready(function () {
 
     // ---------- 메인 이미지 스크롤 애니메이션 ----------
 
-    let mainOffset = $("main").offset().top;
-    let mainHeight = $("main").height();
+    let mainOffset = $("#main").offset().top;
+    let mainHeight = $("#main").height();
 
     // 스크롤 다운
     if (Scroll >= mainOffset && Scroll <= mainHeight) {
@@ -25,8 +25,8 @@ $(document).ready(function () {
 
     // ---------- 어바웃 애니메이션 ----------
 
-    let aboutOffset = $(".about").offset().top;
-    let aboutHeigt = $(".about").height();
+    let aboutOffset = $("#about").offset().top;
+    let aboutHeigt = $("#about").height();
 
     // 스크롤 다운
     if (Scroll >= aboutOffset - 200) {
@@ -35,7 +35,7 @@ $(document).ready(function () {
       // 텍스트 애니메이션
       $(".profile-info").addClass("active");
       $(".about-title").addClass("active");
-      $(".about-me li p").addClass("active");
+      $(".about-me li .about-content").addClass("active");
     }
 
     // 스크롤 업
@@ -46,7 +46,7 @@ $(document).ready(function () {
       // 텍스트 애니메이션
       $(".profile-info").removeClass("active");
       $(".about-title").removeClass("active");
-      $(".about-me li p").removeClass("active");
+      $(".about-me li .about-content").removeClass("active");
     }
 
 
@@ -67,8 +67,8 @@ $(document).ready(function () {
         $(".view-btn").eq(i).addClass("active");
 
         // 이미지 애니메이션
-        $("#img-wrap img").eq(i).addClass("active");
-        $("#img-wrap img").eq(i).removeClass("active2");
+        $(".img-wrap img").eq(i).addClass("active");
+        $(".img-wrap img").eq(i).removeClass("active2");
       }
 
       // 스크롤 업
@@ -82,18 +82,18 @@ $(document).ready(function () {
         $(".view-btn").eq(i).removeClass("active");
 
         // 이미지 애니메이션
-        $("#img-wrap img").eq(i).removeClass("active");
-        $("#img-wrap img").eq(i).addClass("active2");
+        $(".img-wrap img").eq(i).removeClass("active");
+        $(".img-wrap img").eq(i).addClass("active2");
       }
     }
 
 
     // ---------- 콘텍트 애니메이션 ----------
 
-    let contactOffset = $(".contact").offset().top;
+    let contactOffset = $("#contact").offset().top;
 
     if (Scroll >= contactOffset) {
-      $(".contact").css({"background": "#111111"});
+      $("#contact").css({"background": "#111111"});
       $(".cate-btn span").addClass("bg");
       $(".logo").css({"display": "none"});
       $(".con-logo").css({"display": "block"});
@@ -103,7 +103,7 @@ $(document).ready(function () {
     } 
     
     else if (Scroll < contactOffset) {
-      $(".contact").css({"background": "#fff"});
+      $("#contact").css({"background": "#fff"});
       $(".cate-btn span").removeClass("bg");
       $(".logo").css({"display": "block"});
       $(".con-logo").css({"display": "none"});

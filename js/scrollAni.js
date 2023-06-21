@@ -47,6 +47,7 @@ $(document).ready(function () {
       $(".profile-info").removeClass("active");
       $(".about-title").removeClass("active");
       $(".about-me li p").removeClass("active");
+      $(".about-me li .about-content").removeClass("active");
     }
 
 

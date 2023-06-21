@@ -46,7 +46,7 @@ $(document).ready(function () {
       // 텍스트 애니메이션
       $(".profile-info").removeClass("active");
       $(".about-title").removeClass("active");
-      $(".about-me li .about-content").removeClass("active");
+      $(".about-me li p").removeClass("active");
     }
 
 

@@ -94,21 +94,21 @@ $(document).ready(function () {
     let contactOffset = $("#contact").offset().top;
 
     if (Scroll >= contactOffset) {
-      $("#contact").css({"background": "#111111"});
       $(".cate-btn span").addClass("bg");
+      $(".section-title").addClass("active");
+      $("#contact").css({"background": "#111111"});
       $(".logo").css({"display": "none"});
       $(".con-logo").css({"display": "block"});
-      $(".section-title").css({"color": "#87FF29", "font-size": "150px"});
       $(".mail").css({"transform": "translateY(0)", "opacity": 1});
 
     } 
     
     else if (Scroll < contactOffset) {
-      $("#contact").css({"background": "#fff"});
       $(".cate-btn span").removeClass("bg");
+      $(".section-title").removeClass("active");
+      $("#contact").css({"background": "#fff"});
       $(".logo").css({"display": "block"});
       $(".con-logo").css({"display": "none"});
-      $(".section-title").css({"color": "#E9E9E9", "font-size": "110px"});
       $(".mail").css({"transform": "translateY(200px)", "opacity": 0});
     }
   }

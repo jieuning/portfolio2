@@ -9,6 +9,18 @@ html {
   cursor: default;
 }
 
+/* 스크롤바 커스텀 */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* 스크롤바 막대 커스텀 */
+body::-webkit-scrollbar-thumb {
+  background: #111111;
+  border-radius: 30px;
+  border: 2px solid #fff;
+}
+
 section {
   max-width: 1920px;
   height: 100vh;
@@ -28,7 +40,7 @@ section {
   position: absolute;
   top: 50px;
   left: 0;
-  font-size: 120px;
+  font-size: 7.5rem;
   font-family: "NHaas-M";
   color: #E9E9E9;
   letter-spacing: -0.04em;
@@ -141,7 +153,7 @@ nav .category {
   width: 50%;
   height: 100vh;
   background: #111111;
-  padding: 0 200px;
+  padding: 0 8%;
   box-sizing: border-box;
   clip-path: inset(0 0 0 100%);
   transition: all 1s ease-in-out;
@@ -163,7 +175,7 @@ nav #menu {
   text-transform: uppercase;
   font-family: "NHaas-B";
   gap: 50px;
-  font-size: 64px;
+  font-size: 4rem;
 }
 
 /* 메뉴 버튼 호버 */
@@ -195,13 +207,13 @@ nav #menu li:hover {
 .main-container .main-title {
   font-family: "NHaas-B";
   text-transform: uppercase;
-  font-size: 126px;
+  font-size: 7.875rem;
 }
 
 .main-container .main-title p:nth-child(2) {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 1.5625rem;
   letter-spacing: -0.02em;
   color: #87FF29;
 }
@@ -222,7 +234,7 @@ nav #menu li:hover {
 /* 애니메이션 딜레이를 위해 따로 작성 */
 .main-container .main-title .hidden-wrap .left {
   position: relative;
-  left: 86px;
+  left: 5.375rem;
   -webkit-animation: hiddenTitle 1s ease-in-out forwards;
   -moz-animation: hiddenTitle 1s ease-in-out forwards;
   animation: hiddenTitle 1s ease-in-out forwards;
@@ -235,8 +247,8 @@ nav #menu li:hover {
 /* 메인 bg랩 */
 .main-container .bg-wrap {
   position: relative;
-  width: 810px;
-  height: 540px;
+  width: 50.625rem;
+  height: 33.75rem;
   overflow: hidden;
   clip-path: inset(0 0 0 0 round 0%);
   -webkit-animation: maskCircle 1s forwards ease-in-out;
@@ -250,42 +262,42 @@ nav #menu li:hover {
 /* 정원으로 바뀌는 애니메이션 */
 @-webkit-keyframes maskCircle {
   0% {
-    width: 810px;
-    height: 540px;
+    width: 50.625rem;
+    height: 33.75rem;
     clip-path: inset(0 0 0 0 round 0%);
   }
 
   100% {
-    width: 540px;
-    height: 540px;
+    width: 33.75rem;
+    height: 33.75rem;
     clip-path: inset(0 0 0 0 round 50%);
   }
 }
 
 @-moz-keyframes maskCircle {
   0% {
-    width: 810px;
-    height: 540px;
+    width: 50.625rem;
+    height: 33.75rem;
     clip-path: inset(0 0 0 0 round 0%);
   }
 
   100% {
-    width: 540px;
-    height: 540px;
+    width: 33.75rem;
+    height: 33.75rem;
     clip-path: inset(0 0 0 0 round 50%);
   }
 }
 
 @keyframes maskCircle {
   0% {
-    width: 810px;
-    height: 540px;
+    width: 50.625rem;
+    height: 33.75rem;
     clip-path: inset(0 0 0 0 round 0%);
   }
 
   100% {
-    width: 540px;
-    height: 540px;
+    width: 33.75rem;
+    height: 33.75rem;
     clip-path: inset(0 0 0 0 round 50%);
   }
 }
@@ -293,8 +305,8 @@ nav #menu li:hover {
 /* 메인 bg이미지 */
 .main-container .bg-wrap img {
   position: relative;
-  width: 810px;
-  height: 540px;
+  width: 50.625rem;
+  height: 33.75rem;
   object-fit: cover;
   clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   opacity: 0;
@@ -349,22 +361,19 @@ nav #menu li:hover {
 
 #about {
   position: relative;
-  max-width: 1620px;
   display: flex;
   align-items: center;
-  padding: 0 180px;
+  padding: 0 5%;
   box-sizing: border-box;
-  gap: 20%;
 }
 
 #about .section-title {
-  top: 100px;
   padding-left: 7.291%;
 }
 
 /* 프로필 이미지 */
 #about img {
-  width: 70%;
+  width: 50%;
   opacity: 0;
   clip-path: circle(0 at 50% 50%);
 }
@@ -419,6 +428,7 @@ nav #menu li:hover {
   flex-direction: column;
   align-items: center;
   font-family: "NHaas-R";
+  width: 50%;
 }
 
 #about .profile .profile-info {
@@ -442,17 +452,23 @@ nav #menu li:hover {
 #about .profile .profile-info .name {
   font-family: "NHaas-M";
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 /* 어바웃미 */
 #about .about-me {
   display: flex;
-  width: 100%;
+  width: 50%;
   flex-direction: column;
+  align-items: center;
   gap: 80px;
   word-break: keep-all;
   line-height: 1.5;
+}
+
+#about .about-me .about-content-wrap,
+#about .about-me .about-skill {
+  width: 500px;
 }
 
 /* 스킬 탭 */
@@ -507,7 +523,7 @@ nav #menu li:hover {
 
 /* 어바웃 미 타이틀 */
 #about .about-me .about-title {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 20px;
   transform: translateY(130px);
@@ -675,7 +691,7 @@ nav #menu li:hover {
 /* 프로젝트 타이틀 */
 #project .contents-wrap #pro-contents .pro-title {
   font-family: "NHaas-B";
-  font-size: 63px;
+  font-size: 4rem;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -684,7 +700,7 @@ nav #menu li:hover {
 /* 프로젝트 넘버 */
 #project .contents-wrap #pro-contents .pro-title .hidden-wrap .number {
   color: #87FF29;
-  font-size: 112px;
+  font-size: 7rem;
   transform: translateY(150px);
 }
 
@@ -883,6 +899,11 @@ nav #menu li:hover {
   transition: all 1s ease-in-out;
   padding-left: 7.291%;
   z-index: 0;
+}
+
+#contact .contact-wrap .section-title.active {
+  color: #87FF29;
+  font-size: 9.375rem;
 }
 
 #contact .contact-wrap .mail {
